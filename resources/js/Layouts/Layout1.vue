@@ -4,16 +4,25 @@
 
     let width = ref('w-[250px]')
     let hidden = ref("")
+    const hideSidebar = ref(false)
 
     function toggleWidth() {
         if(width.value == 'w-[250px]') {
-            width.value = 'w-[50px]'
+            width.value = 'w-[120px]'
             hidden.value = "hidden"
+            // isSidebarCollapsed.value = !this.isSidebarCollapsed;
+            hideSidebar.value
+
         }else {
             width.value = ['w-[250px]']
             hidden.value = ""
+            !hideSidebar.value
+
         }
     }
+
+
+
 </script>
 
 <template>
@@ -31,7 +40,7 @@
         </div>
         <hr class="border-gray-600">
 
-        <MainNav></MainNav>
+        <MainNav :openSidebar="hideSidebar" />
     </div>
     <div id="container" class="flex-1 ">
         <slot />
